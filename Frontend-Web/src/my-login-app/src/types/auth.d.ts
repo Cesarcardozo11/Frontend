@@ -1,6 +1,8 @@
 interface AuthContextType {
   isAuthenticated: boolean;
   username: string | null;
-  login: (username: string, password: string) => Promise<{ success: boolean; error?: string }>;
+  role: 'ADMIN' | 'USER' | null;
+  token: string | null;
+  login: (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
   logout: () => void;
 }
